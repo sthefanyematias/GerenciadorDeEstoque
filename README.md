@@ -4,7 +4,7 @@ Este repositório contém o código-fonte de uma aplicação Angular que simula 
 
 A ferramenta foi desenvolvida para demonstrar a implementação completa da arquitetura CRUD (Create, Read, Update, Delete), combinada com um sistema robusto de Controle de Acesso Baseado em Perfis (RBAC) e fluxos de autenticação, como Login, Onboarding obrigatório para novos usuários e Recuperação de Senha via e-mail. O projeto foca na manipulação eficiente de dados, na utilização de Guards de rota para segurança e no desenvolvimento front-end com o framework Angular.
 
-Contexto Acadêmico: Trabalho de tema livre para a disciplina de Projeto Integrador do curso de Análise e Desenvolvimento de Sistemas.
+**Contexto Acadêmico**: Trabalho de tema livre para a disciplina de Projeto Integrador do curso de Análise e Desenvolvimento de Sistemas.
 
 ## ✨ Principais Funcionalidades
 
@@ -67,5 +67,12 @@ Use estas credenciais (do arquivo _`data/db.json`_) para testar os diferentes pe
 | 1098 | 456123 | **Consulta** | **Acesso Mínimo (Somente Leitura)**. Pode apenas **Visualizar** a listagem de Produtos e fazer **Consultas Rápidas** por ID. Não pode cadastrar, editar, excluir ou movimentar estoque. |
 
 - **Observação**: Qualquer perfil tem permissão para acessar a tela de Editar Perfil (_`/funcionarios/editar/:id`_) para alterar sua própria senha, que é um requisito de segurança do Onboarding.
+
+---
+Este projeto foi desenvolvido em colaboração por:
+
+- _Sthefany Evangelista Matias_  | Desenvolvedora Full-Stack | **@sthefanyematias**
+- _Patrícia Queiroz de Oliveira_ | Desenvolvedora Full-Stack | 
+
 
 
