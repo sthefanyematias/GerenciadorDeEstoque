@@ -1,0 +1,135 @@
+.principal {
+    padding: 50px 0;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: flex-start; 
+}
+
+.container {
+    width: min(1100px, 94%);
+    margin: 0 auto;
+}
+
+.boas-vindas-simples {
+    text-align: center;
+    padding: 0 0 40px 0; 
+}
+
+.boas-vindas-simples h2 {
+    color: #2c3e50; 
+    margin-bottom: 10px;
+    font-size: 2.4rem; 
+    font-weight: 700;
+}
+
+.boas-vindas-simples p {
+    color: #666;
+    font-size: 1.15rem;
+    margin-bottom: 0;
+}
+
+.destaque-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px; 
+    flex-wrap: wrap; 
+    max-width: 650px;
+    margin: 0 auto; 
+}
+
+.card {
+    flex: 1;
+    min-width: 220px; 
+    max-width: 280px; 
+    padding: 35px 25px;
+    border-radius: 14px;
+    background-color: #ffffff; 
+    border: 1px solid #e3e6ea;
+    text-align: center; 
+    text-decoration: none;
+    transition: all 0.3s ease, border-color 0.4s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(44, 62, 80, 0.15);
+    background-color: #ffffff; 
+}
+
+.card:hover h3,
+.card:hover p,
+.card:hover i {
+    color: #ffffff; 
+    filter: none; 
+}
+
+.card:nth-child(1) i {
+    color: #3498db; 
+}
+.card:nth-child(1):hover {
+    border-color: #3498db; 
+    background-color: #3498db;
+}
+
+.card:nth-child(2) i {
+    color: #2ecc71; 
+}
+.card:nth-child(2):hover {
+    border-color: #2ecc71; 
+    background-color: #2ecc71;
+}
+
+.card:nth-child(3) i {
+    color: #f1c40f; 
+}
+.card:nth-child(3):hover {
+    border-color: #f1c40f; 
+    background-color: #f1c40f;
+}
+
+.card:nth-child(4) i {
+    color: #e67e22; 
+}
+.card:nth-child(4):hover {
+    border-color: #e67e22; 
+    background-color: #e67e22;
+}
+
+.card i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #777;
+    margin: 0;
+}
+
+@media (max-width: 1000px) { 
+    .card {
+        max-width: 45%; 
+    }
+}
+
+@media (max-width: 600px) {
+    .boas-vindas-simples h2 {
+        font-size: 1.8rem;
+    }
+     .card {
+        flex: 0 1 90%; 
+    }
+    .destaque-cards {
+        gap: 20px;
+    }
+}

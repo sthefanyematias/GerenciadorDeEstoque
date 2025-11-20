@@ -1,0 +1,32 @@
+<div class="full-screen-container">
+    <div class="content-form-container">
+        <h2>Recuperação de Senha</h2>
+        <form (ngSubmit)="solicitarRecuperacao()">
+            <p class="instrucao">
+                Informe seu ID de Funcionário. Enviaremos as instruções de redefinição de senha para o seu e-mail
+                cadastrado.
+            </p>
+
+            <label for="input-id">ID do Funcionário</label>
+            <input class="input-simples" id="input-id" name="idFuncionario" type="number"
+                placeholder="Digite seu ID de 5 dígitos" [(ngModel)]="idFuncionario" required>
+
+            <button type="submit" class="input-submeter" [disabled]="carregando">
+                <i *ngIf="!carregando" class="fas fa-envelope"></i>
+                <i *ngIf="carregando" class="fas fa-spinner fa-spin"></i> {{ carregando ? 'Processando...' : 'Recuperar Senha' }}
+            </button>
+        </form>
+
+        <div *ngIf="mensagemSucesso" class="mensagem-feedback sucesso-mensagem">
+            <i class="fas fa-check-circle"></i> {{ mensagemSucesso }}
+        </div>
+
+        <div *ngIf="erroMensagem" class="mensagem-feedback erro-mensagem">
+            <i class="fas fa-times-circle"></i> {{ erroMensagem }}
+        </div>
+
+        <div class="voltar-link">
+            <a [routerLink]="['/login']" class="botao-secundario">Voltar</a>
+        </div>
+    </div>
+</div>

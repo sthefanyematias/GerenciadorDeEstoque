@@ -1,0 +1,22 @@
+<div class="page-container">
+  <ng-container *ngIf="exibirLayoutCompleto">
+    <app-header></app-header>
+  </ng-container>
+  <main class="content-wrap">
+    <router-outlet></router-outlet>
+  </main>
+  <ng-container *ngIf="exibirLayoutCompleto">
+    <app-footer></app-footer>
+  </ng-container>
+  <app-aviso-modal
+    *ngIf="modalAberto"
+    [titulo]="modalTitulo"
+    [mensagem]="modalMensagem"
+    (modalFechado)="handleModalFechado()"
+  ></app-aviso-modal>
+  <app-confirmacao-modal
+    *ngIf="confirmModalAberto"
+    [titulo]="confirmModalTitulo"
+    [mensagem]="confirmModalMensagem"
+  ></app-confirmacao-modal>
+</div>

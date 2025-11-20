@@ -1,0 +1,60 @@
+<div class="content-container">
+    <h2>Gerenciamento de Funcionários</h2>
+    
+    <div class="acao-principal" *ngIf="authService.isAdmin()">
+        <a routerLink="/funcionarios/cadastrar" class="btn-acao btn-incluir">
+            <i class="fas fa-user-plus"></i> Novo Funcionário
+        </a>
+    </div>
+
+    <div *ngIf="erroMensagem" class="erro-mensagem">{{ erroMensagem }}</div>
+
+    <div class="table-wrapper">
+        <table class="estoque-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Setor</th>
+                    <th>Salário</th>
+                    <th>Data Admissão</th>
+                    <!-- <th>Perfil</th>
+                    <th>Status</th> -->
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (f of listaFuncionarios; track f.id){
+                <tr>
+                    <td>{{ f.id }}</td>
+                    <td>{{ f.nome }}</td>
+                    <td>{{ f.cargo }}</td>
+                    <td>{{ f.setor }}</td>
+                    <td>{{ f.salario | currency:'BRL':'symbol':'1.2-2' }}</td>
+                    <td>{{ f.data_admissao | date:'dd/MM/yyyy' }}</td>
+                    <!-- <td>{{ f.role | titlecase }}</td> -->
+                    <!-- <td>{{ checkStatus(f) }}</td> -->
+                    
+                    <td class="acao-buttons">
+                        <a [routerLink]="['/funcionarios/editar', f.id]" class="btn-acao btn-editar">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        
+                        <button 
+                            *ngIf="authService.isAdmin()"
+                            class="btn-acao btn-excluir" 
+                            (click)="excluirFuncionario(f.id)">
+                            <i class="fas fa-trash-alt"></i> Excluir
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="listaFuncionarios.length === 0 && !erroMensagem" class="mensagem-vazio">
+        Nenhum funcionário cadastrado.
+    </div>
+</div>

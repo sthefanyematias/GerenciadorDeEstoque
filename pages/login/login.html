@@ -1,0 +1,46 @@
+<div class="content-form-container">
+    <h2>Gerenciador de Estoque</h2>
+    <form (ngSubmit)="login()">
+        
+        <label for="input-id">ID do Funcionário</label>
+        <input 
+            class="input-simples"
+            id="input-id" 
+            name="idFuncionario"
+            type="number" 
+            placeholder="Digite seu ID"
+            [(ngModel)]="idFuncionario" 
+            required
+        >
+
+        <div class="form-group-senha">
+            <label for="input-senha">Senha</label>
+            <input 
+                class="input-simples"
+                id="input-senha" 
+                name="senha"
+                type="password" 
+                placeholder="Digite sua senha"
+                [(ngModel)]="senha" 
+                required
+            >
+            <a routerLink="/recuperar-senha" class="link-acao link-senha-esquecida">
+                Esqueci minha senha
+            </a>
+        </div>
+        
+        <button type="submit" class="input-submeter">
+            <i class="fas fa-sign-in-alt"></i> Entrar
+        </button>
+
+        <!-- <div class="links-adicionais">
+            <a routerLink="/funcionarios/cadastrar" class="input-submeter btn-cadastro-secundario">
+                Cadastrar Funcionário
+            </a>
+        </div> -->
+    </form>
+    
+    <div *ngIf="erroLogin" class="erro-mensagem">
+        <i class="fas fa-times-circle"></i> {{ erroLogin }}
+    </div>
+</div>

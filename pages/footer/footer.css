@@ -1,0 +1,19 @@
+.rodape-container {
+    background-color: #34495e; 
+    color: #e0e0e0;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.rodape-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.rodape-conteudo p {
+    margin: 5px 0;
+}

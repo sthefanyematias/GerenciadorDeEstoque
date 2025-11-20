@@ -1,0 +1,105 @@
+{
+  "funcionarios": [
+    {
+      "id": "1015",
+      "nome": "Patrícia Queiroz de Oliveira",
+      "cargo": "Gerente Geral",
+      "setor": "Diretoria",
+      "salario": 14500,
+      "data_admissao": "2020-03-15",
+      "role": "admin",
+      "senha": "123456",
+      "onboarded": true,
+      "email": "patricia.oliveira@bompreco.com"
+    },
+    {
+      "id": "1098",
+      "nome": "Sthefany Evangelista Matias",
+      "cargo": "Auxiliar Administrativo",
+      "setor": "Administrativo",
+      "salario": 1900,
+      "data_admissao": "2024-03-20",
+      "role": "consulta",
+      "senha": "123456",
+      "onboarded": true,
+      "email": "sthefany.matias@bompreco.com"
+    },
+    {
+      "id": "1104",
+      "nome": "Evandro Carlos Teruel",
+      "cargo": "Repositor",
+      "setor": "Estoque",
+      "salario": 1317,
+      "data_admissao": "2020-09-01",
+      "role": "operador",
+      "senha": "123456",
+      "onboarded": true,
+      "email": "evandro.teruel@bompreco.com"
+    }
+  ],
+  "estoque": [
+    {
+      "id": "10003",
+      "nome": "Óleo de Soja 900ml",
+      "fabricante": "Soya",
+      "data_fabricacao": "2025-02-01",
+      "data_validade": "2026-02-01",
+      "preco": 6.75,
+      "quantidade": 5
+    },
+    {
+      "id": "10004",
+      "nome": "Açúcar Refinado 1kg",
+      "fabricante": "União",
+      "data_fabricacao": "2025-01-15",
+      "data_validade": "2027-01-15",
+      "preco": 4.5,
+      "quantidade": 136
+    },
+    {
+      "id": "10005",
+      "nome": "Café Torrado e Moído 500g",
+      "fabricante": "Melitta",
+      "data_fabricacao": "2024-09-10",
+      "data_validade": "2026-03-10",
+      "preco": 18.9,
+      "quantidade": 366
+    },
+    {
+      "id": "10006",
+      "nome": "Leite Integral 1L",
+      "fabricante": "Itambé",
+      "data_fabricacao": "2025-10-01",
+      "data_validade": "2025-12-01",
+      "preco": 5.29,
+      "quantidade": 122
+    },
+    {
+      "id": "10007",
+      "nome": "Macarrão Espaguete 500g",
+      "fabricante": "Renata",
+      "data_fabricacao": "2024-07-18",
+      "data_validade": "2026-07-18",
+      "preco": 4.25,
+      "quantidade": 55
+    },
+    {
+      "id": "10008",
+      "nome": "Molho de Tomate Tradicional 340g",
+      "fabricante": "Predilecta",
+      "data_fabricacao": "2025-03-20",
+      "data_validade": "2027-03-20",
+      "preco": 3.8,
+      "quantidade": 59
+    },
+    {
+      "id": "10009",
+      "nome": "Sabão em Pó 1kg",
+      "fabricante": "OMO",
+      "data_fabricacao": "2024-11-05",
+      "data_validade": "2027-11-05",
+      "preco": 12.9,
+      "quantidade": 20
+    }
+  ]
+}

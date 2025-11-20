@@ -1,0 +1,75 @@
+<div class="content-form-container">
+  <h2>Bem-vindo(a) ao Supermercado Bom Preço!</h2>
+
+  <form #formOnboarding="ngForm" (ngSubmit)="completarOnboarding(formOnboarding)" *ngIf="funcionarioAtual">
+
+    <h3 class="form-section-title">
+      Dados de Acesso (Funcionário ID: {{ authService.funcionarioLogado?.id }})
+    </h3>
+
+    <label for="input-nome-display">Nome Completo</label>
+    <input
+      class="input-simples"
+      id="input-nome-display"
+      name="nomeDisplay"
+      type="text"
+      value="{{ funcionarioAtual.nome }}"
+      disabled
+      readonly
+      placeholder="Nome de Cadastro (Não Editável)"
+    />
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="input-nova-senha">Definir nova senha (Mín. 6)</label>
+        <input
+          class="input-simples"
+          id="input-nova-senha"
+          name="novaSenha"
+          #novaSenhaModel="ngModel"
+          type="password"
+          placeholder="Mínimo 6 caracteres"
+          [(ngModel)]="novaSenha"
+          required
+          minlength="6"
+        />
+        <div *ngIf="novaSenhaModel.errors?.['minlength'] && novaSenhaModel.touched"
+             class="erro-mensagem-inline">
+          A senha deve ter no mínimo 6 caracteres.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="input-confirmar-senha">Confirme sua senha</label>
+        <input
+          class="input-simples"
+          id="input-confirmar-senha"
+          name="confirmarSenha"
+          #confirmarSenhaModel="ngModel"
+          type="password"
+          placeholder="Confirme a senha"
+          [(ngModel)]="confirmarSenha"
+          required
+          minlength="6"
+        />
+        <div *ngIf="confirmarSenhaModel.errors?.['minlength'] && confirmarSenhaModel.touched"
+             class="erro-mensagem-inline">
+          A senha deve ter no mínimo 6 caracteres.
+        </div>
+
+        <div *ngIf="confirmarSenhaModel.touched && novaSenha && confirmarSenha && novaSenha !== confirmarSenha"
+             class="erro-mensagem-inline">
+          As senhas digitadas não coincidem.
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="erroMensagem" class="erro-mensagem-inline">
+      <i class="fas fa-times-circle"></i> {{ erroMensagem }}
+    </div>
+
+    <button type="submit" class="input-submeter" [disabled]="!formOnboarding.valid || novaSenha !== confirmarSenha">
+      <i class="fas fa-check-circle"></i> Concluir
+    </button>
+  </form>
+</div>

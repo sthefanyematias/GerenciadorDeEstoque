@@ -1,0 +1,136 @@
+.movimentacao-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  background-color: #f4f7f6;
+  min-height: calc(100vh - 120px);
+}
+
+.card-movimentacao {
+  background-color: #ffffff;
+  padding: 35px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  width: 100%;
+  max-width: 520px;
+}
+
+.card-movimentacao h2 {
+  color: #444;
+  margin-bottom: 6px;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.card-movimentacao .subtitle {
+  color: #7f8c8d;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 0.96rem;
+}
+
+.tab-selector {
+  display: flex;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px 10px;
+  border: none;
+  background-color: #f8f8f8;
+  color: #7f8c8d;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tab-button:hover {
+  background-color: #eef1f2;
+}
+
+.tab-button.active.entrada {
+  background-color: #34495e;
+  color: #fff;
+}
+
+.tab-button.active.baixa {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #707070;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: none; 
+}
+
+.motivo-baixa textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); 
+}
+
+.btn-entrada {
+  background-color: #34495e;
+}
+
+.btn-entrada:hover {
+  background-color: #40586f;
+}
+
+.btn-baixa {
+  background-color: #e74c3c;
+}
+
+.btn-baixa:hover {
+  background-color: #f56c5d;
+}

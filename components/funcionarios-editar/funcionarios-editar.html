@@ -1,0 +1,123 @@
+<div class="content-form-container">
+    <div *ngIf="!funcionario && !erroMensagem">
+        <p class="mensagem-vazio">Carregando dados do funcionário...</p>
+    </div>
+
+    <div *ngIf="erroMensagem && !funcionario" class="erro-mensagem mensagem-feedback">
+        <i class="fas fa-times-circle"></i> {{ erroMensagem }}
+    </div>
+
+    <div *ngIf="funcionario">
+        <h2 class="form-title">
+            {{ isEditingOwnProfile ? 'Editar Meu Perfil' : 'Editar Funcionário' }}
+            (ID: {{ funcionario.id }})
+        </h2>
+
+        <form #formEditar="ngForm" (ngSubmit)="editarFuncionario()">
+            <div class="funcionario-data-section">
+
+                <h3 class="section-title" *ngIf="!isEditingOwnProfile || isUserAdmin">
+                    Informações do Funcionário
+                </h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="input-nome">Nome</label>
+                        <input class="input-simples" id="input-nome" [(ngModel)]="funcionario.nome" name="nome"
+                            type="text" required [disabled]="isEditingOwnProfile || !isUserAdmin" />
+                    </div>
+                    <div class="form-group">
+                        <label for="input-cargo">Cargo</label>
+                        <input class="input-simples" id="input-cargo" [(ngModel)]="funcionario.cargo" name="cargo"
+                            type="text" required [disabled]="isEditingOwnProfile || !isUserAdmin" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="input-setor">Setor</label>
+                        <input class="input-simples" id="input-setor" [(ngModel)]="funcionario.setor" name="setor"
+                            type="text" required [disabled]="isEditingOwnProfile || !isUserAdmin" />
+                    </div>
+                    <div class="form-group">
+                        <label for="input-admissao">Data de Admissão</label>
+                        <input class="input-simples" id="input-admissao" [(ngModel)]="funcionario.data_admissao"
+                            name="data_admissao" type="date" required
+                            [disabled]="isEditingOwnProfile || !isUserAdmin" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="input-salario">Salário (R$)</label>
+                        <input class="input-simples" id="input-salario" [(ngModel)]="funcionario.salario" name="salario"
+                            type="number" required [disabled]="isEditingOwnProfile || !isUserAdmin" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-role">Perfil de Acesso</label>
+                        <select class="input-simples" id="input-role" [(ngModel)]="funcionario.role" name="role"
+                            required [disabled]="isEditingOwnProfile || !isUserAdmin">
+                            <option *ngFor="let op of opcoesRole" [ngValue]="op.value">{{ op.label }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="isEditingOwnProfile" [formGroup]="formSenha"
+                class="senha-section mt-8 pt-4 border-t border-gray-200">
+                <h3 class="section-title">Alterar Senha de Acesso</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="input-nova-senha">Nova Senha (Mín. 6 caracteres)</label>
+                        <input class="input-simples" id="input-nova-senha" formControlName="novaSenha" type="password"
+                            placeholder="Digite sua nova senha" />
+                        <div *ngIf="formSenha.get('novaSenha')?.touched && formSenha.get('novaSenha')?.errors?.['minlength']"
+                            class="erro-mensagem-inline">
+                            A senha é muito curta. (Mínimo 6 caracteres)
+                        </div>
+                        <div *ngIf="formSenha.get('novaSenha')?.touched && formSenha.get('novaSenha')?.errors?.['required']"
+                            class="erro-mensagem-inline">
+                            A nova senha é obrigatória.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-confirmar-senha">Confirmar Nova Senha</label>
+                        <input class="input-simples" id="input-confirmar-senha" formControlName="confirmarNovaSenha"
+                            type="password" placeholder="Confirme a nova senha" />
+                        <div *ngIf="formSenha.get('confirmarNovaSenha')?.touched && formSenha.errors?.['mismatch']"
+                            class="erro-mensagem-inline">
+                            As senhas digitadas não coincidem.
+                        </div>
+                        <div *ngIf="formSenha.get('confirmarNovaSenha')?.touched && formSenha.get('confirmarNovaSenha')?.errors?.['required']"
+                            class="erro-mensagem-inline">
+                            A confirmação da senha é obrigatória.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-action-buttons">
+                <!-- <button type="button" class="btn-cancelar" (click)="cancelar()">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button> -->
+                <div class="form-action-buttons">
+                    <button type="submit" class="btn-atualizar-full"
+                        [disabled]="!funcionario || (isEditingOwnProfile && formSenha.invalid)">
+                        <i class="fas fa-sync-alt"></i> Salvar Alterações
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div *ngIf="mensagemSucesso" class="mensagem-feedback sucesso-mensagem-personalizada">
+            <i class="fas fa-check-circle"></i> {{ mensagemSucesso }}
+        </div>
+
+        <div *ngIf="erroMensagem && !mensagemSucesso" class="mensagem-feedback erro-mensagem-personalizada">
+            <i class="fas fa-times-circle"></i> {{ erroMensagem }}
+        </div>
+    </div>
+</div>

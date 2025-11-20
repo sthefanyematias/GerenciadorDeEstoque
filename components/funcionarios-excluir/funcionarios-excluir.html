@@ -1,0 +1,37 @@
+<div class="content-form-container">
+    <h2>Excluir Funcionário</h2>
+    
+    <div class="alerta-container">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>Esta é uma ação crítica. A exclusão de um funcionário é permanente e deve ser feita apenas por Administradores.</p>
+    </div>
+
+    <form (ngSubmit)="excluirFuncionario()">
+        <label for="input-id">ID do Funcionário a Excluir *</label>
+        <input
+            class="input-simples"
+            id="input-id"
+            name="idExcluir"
+            placeholder="Digite o ID numérico"
+            type="number"
+            [(ngModel)]="idExcluir"
+            required
+        />
+
+        <button type="submit" class="input-submeter btn-excluir">
+            <i class="fas fa-trash-alt"></i> Confirmar Exclusão
+        </button>
+    </form>
+
+    <div *ngIf="mensagemSucesso" class="sucesso-mensagem mensagem-feedback">
+        <i class="fas fa-check-circle"></i> {{ mensagemSucesso }}
+    </div>
+    
+    <div *ngIf="erroMensagem" class="erro-mensagem mensagem-feedback">
+        <i class="fas fa-times-circle"></i> {{ erroMensagem }}
+    </div>
+
+    <a routerLink="/funcionarios" class="btn-voltar-simples">
+        <i class="fas fa-arrow-left"></i> Voltar para a Lista de Funcionários
+    </a>
+</div>

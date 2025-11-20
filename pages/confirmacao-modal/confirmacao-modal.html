@@ -1,0 +1,20 @@
+<div class="modal-overlay">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        
+        <div class="modal-header">
+            <i class="fas fa-exclamation-triangle confirm-icone"></i>
+            <h2>{{ titulo }}</h2>
+        </div>
+
+        <p class="modal-mensagem">{{ mensagem }}</p>
+        
+        <div class="modal-footer">
+            <button class="btn-cancelar" (click)="responder(false)">
+                Não, Cancelar
+            </button>
+            <button class="btn-confirmar" (click)="responder(true)">
+                Sim, Excluir Permanentemente
+            </button>
+        </div>
+    </div>
+</div>

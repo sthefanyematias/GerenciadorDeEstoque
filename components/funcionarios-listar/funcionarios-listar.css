@@ -1,0 +1,148 @@
+.content-container {
+    max-width: 1200px;
+    margin: 90px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative; 
+}
+
+h2 {
+    color: #444; 
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.acao-principal {
+    position: absolute;
+    top: -50px; 
+    right: 0;
+}
+
+.btn-incluir {
+    padding: 10px 15px;
+    background-color: #34495e; 
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-incluir i {
+    margin-right: 8px;
+}
+
+.btn-incluir:hover {
+    background-color: #40586f;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto; 
+}
+
+.estoque-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px; 
+}
+
+.estoque-table thead tr {
+    background-color: #40586f; 
+    color: white;
+    font-weight: 600;
+}
+
+.estoque-table th, .estoque-table td {
+    padding: 10px 14px; 
+    text-align: center; 
+    border: 1px solid #e0e0e0;
+}
+
+.estoque-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+.estoque-table tbody tr:hover {
+    background-color: #f1f1f1; 
+}
+
+td:nth-child(7), 
+td:nth-child(8)  {
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.acao-buttons {
+    white-space: nowrap; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 8px; 
+}
+
+.btn-acao {
+    padding: 7px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    color: white; 
+    text-decoration: none; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-acao i {
+    margin-right: 5px;
+    font-size: 13px;
+}
+
+.btn-editar {
+    background-color: #f1c40f; 
+    color: #333; 
+}
+
+.btn-editar:hover {
+    background-color: #e0a800;
+    transform: translateY(-1px);
+}
+
+.btn-excluir {
+    background-color: #e74c3c; 
+}
+
+.btn-excluir:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+}
+
+.erro-mensagem {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.mensagem-vazio {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px dashed #cccccc;
+    color: #666;
+    text-align: center;
+    border-radius: 4px;
+}

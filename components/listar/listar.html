@@ -1,0 +1,69 @@
+<div class="content-container">
+    <h2>Produtos em Estoque</h2>
+
+    <div class="header-actions acao-principal">
+        <a *ngIf="authService.isOperador() || authService.isAdmin()" 
+           [routerLink]="['/cadastrar']"
+           class="btn-acao btn-incluir"> 
+            Novo Produto
+        </a>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="estoque-table">
+            <thead>
+                <tr>
+                    <th>Id.</th>
+                    <th>Nome</th>
+                    <th>Fabricante</th>
+                    <th>Data de Fabricação</th>
+                    <th>Validade</th>
+                    <th>Preço (R$)</th>
+                    <th>Qtd.</th>
+                    <th *ngIf="podeVerAcoes">Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (produto of listaProdutos; track produto.id) {
+                <tr>
+                    <td>{{ produto.id }}</td>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.fabricante }}</td>
+                    <td>{{ produto.data_fabricacao | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ produto.data_validade | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ produto.preco | currency:'BRL':'symbol':'1.2-2' }}</td>
+
+                    <td [ngClass]="checkEstoqueStatus(produto.quantidade)"
+                        (mouseenter)="onMouseEnter($event, getTooltipMessage(produto.quantidade))"
+                        (mouseleave)="onMouseLeave()">
+                        {{ produto.quantidade }}
+                    </td>
+
+                    <td class="acao-buttons" *ngIf="podeVerAcoes">
+                        <a *ngIf="authService.isOperador() || authService.isAdmin()" 
+                           class="btn-acao btn-editar"
+                           [routerLink]="['/editar', produto.id]" 
+                           title="Editar Produto">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+
+                        <button *ngIf="authService.isAdmin()" 
+                                class="btn-acao btn-excluir" 
+                                (click)="excluir(produto.id)"
+                                title="Excluir Produto">
+                            <i class="fas fa-trash-alt"></i> Excluir
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="listaProdutos.length === 0" class="mensagem-vazio">
+        Nenhum produto cadastrado no estoque.
+    </div>
+
+    <div id="tooltip" class="tooltip-box"></div>
+</div>

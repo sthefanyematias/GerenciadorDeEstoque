@@ -1,0 +1,43 @@
+<div class="consulta-container">
+  <h2>Consulta Rápida de Produto</h2>
+
+  <form (ngSubmit)="buscarProduto()">
+    <div class="form-group-inline">
+      <label for="input-id">Informe o código de identificação do produto:</label>
+      <input
+        type="text"
+        id="input-id"
+        name="idBusca"
+        [(ngModel)]="idBusca"
+        class="input-id"
+        placeholder="Ex: 100003"
+        required
+      />
+      <button type="submit" class="btn-buscar">
+        <i class="fas fa-search"></i> Buscar Produto
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="produtoEncontrado" class="produto-dados">
+    <h3>Informações do Produto</h3>
+    <div class="dados-grid-consulta">
+      <p><strong>ID:</strong> {{ produtoEncontrado.id }}</p>
+      <p><strong>Nome:</strong> {{ produtoEncontrado.nome }}</p>
+      <p><strong>Fabricante:</strong> {{ produtoEncontrado.fabricante }}</p>
+      <p><strong>Data de Fabricação:</strong> {{ produtoEncontrado.data_fabricacao | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Validade:</strong> {{ produtoEncontrado.data_validade | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Preço:</strong> {{ produtoEncontrado.preco | currency:'BRL':'symbol':'1.2-2' }}</p>
+      <p class="quantidade-estoque">
+        <strong>Em Estoque:</strong>
+        <span [class]="getStatusClass(produtoEncontrado.quantidade)">
+          {{ produtoEncontrado.quantidade }} UNIDADES
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="erroBusca" class="erro-busca">
+    <i class="fas fa-times-circle"></i> {{ erroBusca }}
+  </div>
+</div>

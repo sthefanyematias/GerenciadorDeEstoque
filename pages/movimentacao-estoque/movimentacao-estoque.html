@@ -1,0 +1,67 @@
+<div class="movimentacao-container">
+    <div class="card-movimentacao">
+        
+        <h2>Movimentação de Estoque</h2>
+        <p class="subtitle">Registre entradas de novos produtos ou a baixa por perdas/vendas.</p>
+
+        <div class="tab-selector">
+            <button 
+                [class.active]="tipoMovimentacao === 'Entrada'"
+                (click)="tipoMovimentacao = 'Entrada'"
+                class="tab-button entrada">
+                Entrada (Aumento de Estoque)
+            </button>
+            <button 
+                [class.active]="tipoMovimentacao === 'Baixa'"
+                (click)="tipoMovimentacao = 'Baixa'"
+                class="tab-button baixa">
+                Baixa (Saída de Estoque)
+            </button>
+        </div>
+
+        <form (ngSubmit)="realizarMovimentacao()">
+            
+            <div class="form-group">
+                <label for="produtoId">ID do Produto:</label>
+                <input 
+                    id="produtoId" 
+                    type="number" 
+                    placeholder="Digite o ID numérico do produto"
+                    [(ngModel)]="produtoIdInput"
+                    name="produtoIdInput"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade:</label>
+                <input 
+                    id="quantidade" 
+                    type="number" 
+                    placeholder="Quantidade a ser movimentada"
+                    [(ngModel)]="quantidade"
+                    name="quantidade"
+                    required>
+            </div>
+
+            <div *ngIf="tipoMovimentacao === 'Baixa'" class="form-group motivo-baixa">
+                <label for="motivoBaixa">Motivo da Baixa:</label>
+                <textarea 
+                    id="motivoBaixa" 
+                    placeholder="Ex: Venda, perda por avaria, troca, etc."
+                    [(ngModel)]="motivoBaixa"
+                    name="motivoBaixa"
+                    rows="3"
+                    required>
+                </textarea>
+            </div>
+            
+            <button 
+                type="submit" 
+                class="btn-primary"
+                [ngClass]="{'btn-entrada': tipoMovimentacao === 'Entrada', 'btn-baixa': tipoMovimentacao === 'Baixa'}">
+                Registrar {{ tipoMovimentacao }}
+            </button>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,235 @@
+.content-container {
+    max-width: 1200px;
+    margin: 90px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative; 
+}
+
+h2 {
+    color: #444; 
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.acao-principal {
+    position: absolute;
+    top: -50px; 
+    right: 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto; 
+}
+
+.estoque-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px; 
+}
+
+.estoque-table thead tr {
+    background-color: #40586f; 
+    color: white;
+    font-weight: 600;
+}
+
+.estoque-table th, .estoque-table td {
+    padding: 10px 14px; 
+    text-align: center; 
+    border: 1px solid #e0e0e0;
+}
+
+.estoque-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+.estoque-table tbody tr:hover {
+    background-color: #f1f1f1; 
+}
+
+.acao-buttons {
+    white-space: nowrap; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 8px; 
+}
+
+.btn-acao { 
+    padding: 7px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    color: white; 
+    text-decoration: none; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-acao i {
+    margin-right: 5px; 
+    font-size: 13px;
+}
+
+.btn-incluir {
+    background-color: #34495e; 
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-incluir:hover {
+    background-color: #40586f;
+}
+
+.acao-principal .btn-incluir {
+   padding: 8px 15px !important;
+    border-radius: 6px !important; 
+    line-height: 1; 
+    align-items: center !important; 
+}
+
+.acao-principal .btn-incluir i {
+    margin-right: 8px; 
+}
+
+.btn-editar {
+    background-color: #f1c40f; 
+    color: #333; 
+}
+
+.btn-editar:hover {
+    background-color: #e0a800; 
+    transform: translateY(-1px);
+}
+
+.btn-excluir {
+    background-color: #e74c3c; 
+}
+
+.btn-excluir:hover {
+    background-color: #c0392b; 
+    transform: translateY(-1px);
+}
+
+.status-critico {
+    background-color: #f8d7da !important; 
+    color: #721c24;
+    font-weight: 700;
+}
+
+.status-alerta {
+    background-color: #fff3cd !important; 
+    color: #856404; 
+    font-weight: 600;
+}
+
+.status-ok {
+    color: #212529; 
+}
+
+.mensagem-vazio {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f0f0f0; 
+    border: 1px dashed #cccccc;
+    color: #666;
+    text-align: center;
+    border-radius: 4px;
+    font-style: italic;
+}
+
+@media (max-width: 992px) {
+    .content-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+@media (max-width: 768px) { 
+    .estoque-table { 
+        min-width: 700px; 
+    } 
+}
+
+#tooltip {
+    position: fixed;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    max-width: 260px;
+    pointer-events: none;
+}
+
+#tooltip.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+#tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+}
+
+#tooltip.critico {
+    background-color: #dc3545;
+}
+
+#tooltip.critico::after {
+    border-color: #dc3545 transparent transparent transparent;
+}
+
+#tooltip.alerta {
+    background-color: #f1c40f; 
+    color: #333;
+}
+
+#tooltip.alerta::after {
+    border-color: #f1c40f transparent transparent transparent;
+}
+
+#tooltip.ok {
+    background-color: #444; 
+}
+
+#tooltip.ok::after {
+    border-color: #444 transparent transparent transparent;
+}
+
+.status-critico {
+    background-color: #f8d7da;
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.status-alerta {
+    background-color: #fff3cd;
+    color: #856404;
+    font-weight: bold;
+}

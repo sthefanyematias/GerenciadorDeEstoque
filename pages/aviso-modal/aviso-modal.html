@@ -1,0 +1,15 @@
+<div class="modal-overlay" (click)="fechar()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        
+        <div class="modal-header">
+            <i class="fas fa-ban erro-icone"></i>
+            <h2>{{ titulo }}</h2>
+        </div>
+
+        <p class="modal-mensagem">{{ mensagem }}</p>
+        
+        <div class="modal-footer">
+            <button class="btn-ok" (click)="fechar()">OK</button>
+        </div>
+    </div>
+</div>
