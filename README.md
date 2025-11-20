@@ -23,8 +23,8 @@ Para rodar este projeto, você precisa iniciar a API Mock (Backend) e o Servidor
 
 - Node.js (v18+)
 - npm
-- Angular CLI (npm install -g @angular/cli)
-- JSON-Server (npm install -g json-server)
+- Angular CLI (`npm install -g @angular/cli`)
+- JSON-Server (`npm install -g json-server`)
 
 ## ⚙️ Instruções de Inicialização
 Na pasta raiz do projeto
