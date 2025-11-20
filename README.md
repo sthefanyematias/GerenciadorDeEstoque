@@ -27,9 +27,9 @@ Para rodar este projeto, você precisa iniciar a API Mock (Backend) e o Servidor
 - JSON-Server (`npm install -g json-server`)
 
 ## ⚙️ Instruções de Inicialização
-Na pasta raiz do projeto
+Assumindo que o **Node.js (v18+), npm, Angular CLI** e **JSON-Server** foram instalados globalmente (conforme listado na seção "_Pré-requisitos_"), e que você já está na pasta raiz do projeto, vamos seguir para a execução:
 
-**1. Clonar e instalar**
+**1. Instalar Dependências**
 
 ```bash
 npm install
@@ -37,21 +37,21 @@ npm install
 
 **2. Iniciar a API Mock (Terminal 1)**
 
+Use uma janela de terminal exclusiva para este passo. O servidor da API ficará rodando.
+
 ```bash
 json-server --watch data/db.json
 ```
 
-**ou**
+_Alternativa: Caso o comando acima falhe por falta de variável de ambiente, use:_
 
 ```bash
-cd data
-```
-
-```bash
-npx json-server db.json
+npx json-server --watch data/db.json
 ```
 
 **3. Iniciar o Frontend Angular (Terminal 2)**
+
+Use uma segunda janela de terminal.
 
 ```bash
 ng serve --open
