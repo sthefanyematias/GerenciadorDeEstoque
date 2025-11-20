@@ -1,59 +1,71 @@
-# Estoque
+# 📦 Gerenciador Supermercado Bom Preço (Full Stack Mock)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
+Este repositório contém o código-fonte de uma aplicação Angular que simula um Gerenciador de Estoque e Pessoal para o cenário fictício do Supermercado Bom Preço.
 
-## Development server
+A ferramenta foi desenvolvida para demonstrar a implementação completa da arquitetura CRUD (Create, Read, Update, Delete), combinada com um sistema robusto de Controle de Acesso Baseado em Perfis (RBAC) e fluxos de autenticação, como Login, Onboarding obrigatório para novos usuários e Recuperação de Senha via e-mail. O projeto foca na manipulação eficiente de dados, na utilização de Guards de rota para segurança e no desenvolvimento front-end com o framework Angular.
 
-To start a local development server, run:
+Contexto Acadêmico: Trabalho de tema livre para a disciplina de Projeto Integrador do curso de Análise e Desenvolvimento de Sistemas.
 
-```bash
-ng serve
-```
+## ✨ Principais Funcionalidades
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Gestão de Estoque**: CRUD completo (Cadastro, Consulta, Listagem, Edição, Exclusão), incluindo controle de Movimentação (Entrada/Baixa) e alertas de Estoque Crítico/Alerta.
+- **Gestão de Funcionários**: Módulo completo de controle de pessoal (apenas para admin), incluindo cadastro, edição de dados corporativos e gerenciamento de perfis.
+- **Autenticação Avançada**:
+  - **Perfis de Acesso (role)**: admin, operador e consulta.
+  -  **Guards de Rota**: Segurança implementada via Guards para restringir acessos com base no perfil e status de login.
+  -   **Fluxo de Onboarding**: Obriga novos funcionários a alterarem sua senha inicial no primeiro acesso.
+- **Interface**: Navegação intuitiva com Header e Footer dinâmicos, e sistema de feedback ao usuário via Modais de aviso e confirmação.
 
-## Code scaffolding
+## 🚀 Como Executar o Projeto
+Para rodar este projeto, você precisa iniciar a API Mock (Backend) e o Servidor de Desenvolvimento do Angular (Frontend) em terminais separados.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**Pré-requisitos**
 
-```bash
-ng generate component component-name
-```
+- Node.js (v18+)
+- npm
+- Angular CLI (`npm install -g @angular/cli`)
+- JSON-Server (`npm install -g json-server`)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ⚙️ Instruções de Inicialização
+Na pasta raiz do projeto
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+**1. Clonar e instalar**
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+**2. Iniciar a API Mock (Terminal 1)**
 
 ```bash
-ng e2e
+json-server --watch data/db.json
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+**ou**
 
-## Additional Resources
+```bash
+cd data
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npx json-server db.json
+```
+
+**3. Iniciar o Frontend Angular (Terminal 2)**
+
+```bash
+ng serve --open
+```
+
+## 🔑 Credenciais de Teste
+Use estas credenciais (do arquivo _`data/db.json`_) para testar os diferentes perfis em _http://localhost:4200/login_:
+
+| ID   | Senha  | Perfil   | Descrição e Permissões Principais |
+|:------:|:--------:|:----------:|-----------------------------------|
+| 1015 | 123456 | **Admin** | **Administrador Total**. Tem acesso completo a **todos os módulos** do sistema. Pode cadastrar, editar e excluir Produtos, e também gerencia todos os dados e acessos de Funcionários. |
+| 1104 | 123456 | **Operador** | **Gestão de Inventário**. Pode **visualizar** todo o estoque e tem permissão para **Cadastrar**, **Editar** e registrar **Movimentações (Entrada/Baixa)** de Produtos. Não tem acesso à gestão de Funcionários. |
+| 1098 | 456123 | **Consulta** | **Acesso Mínimo (Somente Leitura)**. Pode apenas **Visualizar** a listagem de Produtos e fazer **Consultas Rápidas** por ID. Não pode cadastrar, editar, excluir ou movimentar estoque. |
+
+- **Observação**: Qualquer perfil tem permissão para acessar a tela de Editar Perfil (_`/funcionarios/editar/:id`_) para alterar sua própria senha, que é um requisito de segurança do Onboarding.
+
+
