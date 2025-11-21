@@ -1,4 +1,4 @@
-# 📦 Gerenciador Supermercado Bom Preço (Full Stack Mock)
+# 📦 Gerenciador de Estoque do Supermercado Bom Preço (Full Stack Mock)
 
 Este repositório contém o código-fonte de uma aplicação Angular que simula um Gerenciador de Estoque e Pessoal para o cenário fictício do Supermercado Bom Preço.
 
