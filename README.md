@@ -64,7 +64,7 @@ Use estas credenciais (do arquivo _`data/db.json`_) para testar os diferentes pe
 |:------:|:--------:|:----------:|-----------------------------------|
 | 1015 | 123456 | **Admin** | **Administrador Total**. Tem acesso completo a **todos os módulos** do sistema. Pode cadastrar, editar e excluir Produtos, e também gerencia todos os dados e acessos de Funcionários. |
 | 1104 | 123456 | **Operador** | **Gestão de Inventário**. Pode **visualizar** todo o estoque e tem permissão para **Cadastrar**, **Editar** e registrar **Movimentações (Entrada/Baixa)** de Produtos. Não tem acesso à gestão de Funcionários. |
-| 1098 | 456123 | **Consulta** | **Acesso Mínimo (Somente Leitura)**. Pode apenas **Visualizar** a listagem de Produtos e fazer **Consultas Rápidas** por ID. Não pode cadastrar, editar, excluir ou movimentar estoque. |
+| 1098 | 123456 | **Consulta** | **Acesso Mínimo (Somente Leitura)**. Pode apenas **Visualizar** a listagem de Produtos e fazer **Consultas Rápidas** por ID. Não pode cadastrar, editar, excluir ou movimentar estoque. |
 
 - **Observação**: Qualquer perfil tem permissão para acessar a tela de Editar Perfil (_`/funcionarios/editar/:id`_) para alterar sua própria senha, que é um requisito de segurança do Onboarding.
 
