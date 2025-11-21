@@ -72,7 +72,7 @@ Use estas credenciais (do arquivo _`data/db.json`_) para testar os diferentes pe
 Este projeto foi desenvolvido em colaboração por:
 
 - _Sthefany Evangelista Matias_  | Desenvolvedora Full-Stack | **@sthefanyematias**
-- _Patrícia Queiroz de Oliveira_ | Desenvolvedora Full-Stack | 
+- _Patrícia Queiroz de Oliveira_ | Desenvolvedora Full-Stack | **@patriciaqueiroz2025**
 
 
 
