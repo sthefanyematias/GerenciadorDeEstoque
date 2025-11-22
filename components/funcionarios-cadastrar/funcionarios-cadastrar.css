@@ -34,6 +34,18 @@ form label {
     color: #707070;
 }
 
+#input-id[disabled] {
+    background-color: #e9ecef !important; 
+    color: #495057;
+    cursor: not-allowed;
+}
+
+#input-id:focus {
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+    outline: none;
+}
+
 .input-simples {
     width: 100%;
     padding: 10px 12px;
