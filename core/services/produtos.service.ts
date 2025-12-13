@@ -8,7 +8,8 @@ import { Observable, throwError, catchError } from 'rxjs';
 })
 export class ProdutosService {
   //private readonly API = 'http://localhost:3000/estoque';
-  private readonly API = 'https://my-json-server.typicode.com/sthefanyematias/GerenciadorDeEstoque/estoque'; 
+  //private readonly API = 'https://my-json-server.typicode.com/sthefanyematias/GerenciadorDeEstoque/estoque'; 
+  private readonly API = '/estoque';
 
   constructor(private http: HttpClient) { }
 
