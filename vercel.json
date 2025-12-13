@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/funcionarios",
+      "destination": "https://my-json-server.typicode.com/sthefanyematias/GerenciadorDeEstoque/funcionarios"
+    },
+    {
+      "source": "/estoque",
+      "destination": "https://my-json-server.typicode.com/sthefanyematias/GerenciadorDeEstoque/estoque"
+    }
+  ]
+}
