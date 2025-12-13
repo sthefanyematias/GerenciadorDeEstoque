@@ -7,7 +7,8 @@ import { Funcionario } from '../types/types';
   providedIn: 'root',
 })
 export class FuncionariosService {
-  private readonly API = 'http://localhost:3000/funcionarios'; 
+  //private readonly API = 'http://localhost:3000/funcionarios'; 
+  private readonly API = 'https://my-json-server.typicode.com/sthefanyematias/GerenciadorDeEstoque/funcionarios'; 
 
   constructor(private http: HttpClient) { }
 
